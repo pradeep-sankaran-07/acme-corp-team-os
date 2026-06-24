@@ -1,0 +1,70 @@
+# Acme Corp Team OS config: the single place for environment-specific values.
+# This is a demo repo with fictional data.
+
+repo_name: acme-corp-team-os
+environment: demo
+
+github:
+  owner: pradeep-sankaran-07
+  repo: acme-corp-team-os
+  visibility: public
+  remote: "https://github.com/pradeep-sankaran-07/acme-corp-team-os"
+
+store:
+  # This Team OS lives in a git repo. The routine commits and pushes after each run.
+  repo_path: "/Users/pradeepsankaran/Documents/Repos/acme-corp-team-os"
+
+schedule:
+  daily_sync_cron: "0 9 * * *"     # 9am local time (Europe/Oslo)
+  task_id: acme-team-os-daily-sync
+
+sources:
+  matching:
+    match_by: [email_domain, fuzzy_name]
+    create_only_from_watch_list: true
+    exclude_personal_domains: [gmail.com, googlemail.com, outlook.com, hotmail.com, yahoo.com, icloud.com, proton.me]
+
+default_model: claude-opus-4-8
+
+people:
+  - name: Maya Chen
+    role: CEO
+    email: maya@acme.com
+  - name: Diego Ramirez
+    role: Head of Product
+    email: diego@acme.com
+  - name: Priya Nair
+    role: Head of Sales
+    email: priya@acme.com
+  - name: Lena Vossen
+    role: Founding Account Executive
+    email: lena@acme.com
+    owns: [prospects]
+  - name: Sam Okafor
+    role: Customer Success Manager
+    email: sam@acme.com
+    owns: [customers, onboarding]
+
+# Watch list: the customers the daily routine is allowed to touch.
+# stage: prospect | onboarding | active | churned
+watch_list:
+  - name: Northwind Software
+    slug: northwind-software
+    domain: northwindsoftware.com
+    stage: active
+    owner: Sam Okafor
+  - name: Brightwave Media
+    slug: brightwave-media
+    domain: brightwavemedia.com
+    stage: active
+    owner: Sam Okafor
+  - name: Vertex Analytics
+    slug: vertex-analytics
+    domain: vertexanalytics.io
+    stage: onboarding
+    owner: Sam Okafor
+  - name: Cobalt Security
+    slug: cobalt-security
+    domain: cobaltsecurity.com
+    stage: prospect
+    owner: Lena Vossen
