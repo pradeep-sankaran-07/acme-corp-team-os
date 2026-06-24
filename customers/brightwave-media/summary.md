@@ -18,5 +18,6 @@ Adoption is slower than expected. Two reps live since January, but positive repl
 - Renewal risk in January if results do not improve. (owner: Sam)
 
 ## Recent activity
+- 2026-06-24 account review generated (plan to green) - see documents/account-review-2026-06-24.md
 - 2026-06-12 review call - see calls/
 - 2026-06-05 email from Tom on LinkedIn - see emails/
